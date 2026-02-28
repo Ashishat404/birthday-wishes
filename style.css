@@ -16,61 +16,64 @@
 
 .loading
 {
-    width: 200px;
-    height: 200px;
-    box-sizing: border-box ;
-    border-radius: 50%;
-    border-top: 10px solid #e74c3c;
+    width: 60px;
+    height: 60px;
     position: relative;
     margin-top: 40%;
-    animation: a1 2s linear infinite;
     margin-left:70px;
 }
 
 .loading::before,.loading::after{
     content: '';
-    width: 200px;
-    height: 200px;
     position: absolute;
-    left: 0;
-    top: -10px;
-    box-sizing:border-box;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    
-    
+    background: #e74c3c;
+    animation: spinnerDots 1.5s ease-in-out infinite;
 }
-  .loading::before{
-      border-top: 10px solid #e67e22;
-      transform: rotate(120deg);
-      
-  }
+
+.loading::before{
+    bottom: 0;
+    left: 50%;
+    margin-left: -6px;
+    background: #e74c3c;
+    animation-delay: -0.5s;
+}
 
 .loading::after{
-    border-top:10px solid #3498db;
-    transform: rotate(240deg);
+    top: 0;
+    left: 50%;
+    margin-left: -6px;
+    background: #3498db;
+    animation-delay: 0s;
 }
 
 
 .loading span{
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 60px;
+    height: 60px;
     color: #fff;
     text-align: center;
-    line-height: 200px;
-    animation: a2 2s linear infinite;
+    line-height: 60px;
+    font-size: 12px;
+    top: 70px;
+    left: 0;
 }
 
-@keyframes a1{
-    to{
-        transform: rotate(360deg);
+@keyframes spinnerDots{
+    0% {
+        opacity: 1;
+        transform: translateY(0);
     }
-    
-}
-
-@keyframes a2{
-    to{
-        transform: rotate(-360deg);
+    50% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-20px);
     }
 }
 
